@@ -7,7 +7,14 @@ function dd($value){
     die();
 }
 
-function abort($code = 404){
+function abort($code = "404"){
     http_response_code($code);
-    require '404.view.php';
+    require "Day3/View/". $code . ".view.php";
+
+}
+
+function authentication($condition, $states=404){
+    if($condition) {
+        abort($states);
+    }
 }
